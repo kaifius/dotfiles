@@ -1,1 +1,1 @@
-alias arcprune='git branch | grep arcpatch | zargs git branch -D'
+alias arcprune='git branch | grep arcpatch | xargs git branch -D'
