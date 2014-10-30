@@ -12,10 +12,6 @@
     'tmp'
     'vendor'
   ]
-  'themes': [
-    'unity-ui'
-    'glacier-syntax'
-  ]
   'hideGitIgnoredFiles': true
   'disabledPackages': [
     'background-tips'
