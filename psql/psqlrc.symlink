@@ -4,8 +4,8 @@
 -- nicer rendering for null
 \pset null '❌ '
 
--- nicer tables
-\pset linestyle unicode
+-- ascii tables for speed
+\pset linestyle ascii
 
 -- enable timers
 \timing
