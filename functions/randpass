@@ -1,0 +1,4 @@
+# Generates a random password of length 14
+randpass () {
+  openssl rand -base64 14
+}
