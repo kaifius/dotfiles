@@ -189,8 +189,10 @@ function git_prompt() {
   fi
 }
 
+# TODO: remove this completely
 function exit_code {
-  echo "%(?,,%{$fg_bold[red]%}✗)"
+  # echo "%(?,,%{$fg_bold[red]%}✗)"
+  echo ""
 }
 
 ZSH_THEME_GIT_PROMPT_BRANCH_PREFIX="%{$ZSH_THEME_GIT_PROMPT_BRANCH_COLOR%}"
