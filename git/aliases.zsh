@@ -6,8 +6,12 @@ then
   alias git=$hub_path
 fi
 
+lg() {
+  git lg $1 | less -X
+}
+
 # The rest of my fun git aliases
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative | less -X"
+alias gl="echo 'did you mean lg?'"
 alias gp='git push origin HEAD'
 alias gpm='git pull origin master --prune'
 alias gkm='git checkout master'
