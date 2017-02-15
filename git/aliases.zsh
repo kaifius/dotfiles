@@ -14,6 +14,7 @@ lg() {
 alias gl="echo 'did you mean lg?'"
 alias gp='git push origin HEAD'
 alias gpm='git pull origin master --prune'
+alias gps='git pull origin staging --prune'
 alias gkm='git checkout master'
 alias grm='git rebase master'
 alias gc='git commit'
