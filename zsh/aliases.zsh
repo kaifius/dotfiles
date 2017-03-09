@@ -13,14 +13,23 @@ alias hrc='heroku run rails console -r heroku'
 alias hrcStaging='heroku run rails console -r staging'
 alias tempcommit="git add .; git commit -m 'TEMP COMMIT'"
 
-alias changedFiles='git diff HEAD~1 --name-only | cat'
+alias latestCommittedFiles='git diff HEAD HEAD~1 --name-only | cat'
+alias changedFiles='git diff HEAD --name-only | cat'
 
+openLastCommit() {
+  openFilesCommand="subl . "
+  while read -r fileName; do
+    openFilesCommand=$openFilesCommand$fileName" "
+  done <<< $(latestCommittedFiles)
+  echo "opening files changed in last commit:\n$(latestCommittedFiles)"
+  eval $openFilesCommand
+}
 openChangedFiles() {
   openFilesCommand="subl . "
   while read -r fileName; do
     openFilesCommand=$openFilesCommand$fileName" "
   done <<< $(changedFiles)
-  echo "opening changed files:\n$(changedFiles)"
+  echo "opening uncommitted changed files:\n$(changedFiles)"
   eval $openFilesCommand
 }
 
