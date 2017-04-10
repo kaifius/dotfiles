@@ -12,25 +12,33 @@ alias me="lg | grep -vi 'merge' | grep -i '<kai'"
 alias hrc='heroku run rails console -r heroku'
 alias hrcStaging='heroku run rails console -r staging'
 alias tempcommit="git add .; git commit -m 'TEMP COMMIT'"
+alias jest='yarn jest'
 
 alias latestCommittedFiles='git diff HEAD HEAD~1 --name-only | cat'
 alias changedFiles='git diff HEAD --name-only | cat'
 
-openLastCommit() {
-  openFilesCommand="subl . "
+doAThingToLotsOfFiles() {
+  commandToPerform=$1" "
+  alias filesList=$2
   while read -r fileName; do
-    openFilesCommand=$openFilesCommand$fileName" "
-  done <<< $(latestCommittedFiles)
-  echo "opening files changed in last commit:\n$(latestCommittedFiles)"
-  eval $openFilesCommand
-}
-openChangedFiles() {
-  openFilesCommand="subl . "
-  while read -r fileName; do
-    openFilesCommand=$openFilesCommand$fileName" "
-  done <<< $(changedFiles)
-  echo "opening uncommitted changed files:\n$(changedFiles)"
-  eval $openFilesCommand
+    commandToPerform=$commandToPerform$fileName" "
+  done <<< $(filesList)
+  echo "performing $1 on the following files: \n\n$(filesList)"
+  eval $commandToPerform
+
 }
 
-alias jest='npm run jest'
+openCommit() {
+  eval 'doAThingToLotsOfFiles "subl ." "git diff $1 $1~1 --name-only | cat"'
+}
+
+openLastCommit() {
+  eval 'openCommit HEAD'
+}
+
+openChangedFiles!() {
+  eval 'git add .'
+  eval 'doAThingToLotsOfFiles "subl ." changedFiles'
+  eval 'git reset'
+}
+
