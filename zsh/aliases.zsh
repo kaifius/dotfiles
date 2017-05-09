@@ -13,6 +13,7 @@ alias hrc='heroku run rails console -r heroku'
 alias hrcStaging='heroku run rails console -r staging'
 alias tempcommit="git add .; git commit -m 'TEMP COMMIT'"
 alias jest='yarn jest'
+alias st='spring teaspoon'
 
 alias latestCommittedFiles='git diff HEAD HEAD~1 --name-only | cat'
 alias changedFiles='git diff HEAD --name-only | cat'
@@ -42,3 +43,12 @@ openChangedFiles!() {
   eval 'git reset'
 }
 
+resetTempCommit() {
+  headMessage=$(git log --format=%B -n 1 HEAD | cat)
+
+  if [ $headMessage == "TEMP COMMIT" ]; then
+    git reset HEAD~1
+  else
+    echo 'no temp commit to reset'
+  fi
+}
