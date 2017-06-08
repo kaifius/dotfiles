@@ -11,15 +11,15 @@ lg() {
 }
 
 alias gl="echo 'did you mean lg?'"
-alias gp='git push origin HEAD'
+alias gp='git push'
 alias gpm='git pull origin master --prune && git fetch'
-alias gps='git pull origin staging --prune'
-alias gkm='git checkout master'
-alias gks='git co staging'
+alias gps='git pull origin staging --prune && git fetch'
+alias gkm='git co master && gpm'
+alias gks='git co staging && gps'
 alias gkl='git co -'
 alias grm='git rebase master'
 alias gc='git commit'
-alias gca='git commit -a'
+alias gca='git commit --amend'
 alias gco='git checkout'
 alias gk='git checkout -b'
 alias gcb='git copy-branch-name'
