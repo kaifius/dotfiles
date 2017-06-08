@@ -1,0 +1,3 @@
+'atom-text-editor':
+  'cmd-i': 'path-copy:current-relativepath'
+  

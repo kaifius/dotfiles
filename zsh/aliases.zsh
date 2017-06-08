@@ -4,7 +4,7 @@ addAlias() {
 }
 
 alias reload!='. ~/.zshrc'
-alias zshp='subl ~/.dotfiles'
+alias zshp='atom ~/.dotfiles'
 alias chalk='cd ~/code/synchroform'
 alias code='cd ~/code'
 alias gitwut='cat ~/.dotfiles/git/aliases.zsh | grep alias'
@@ -31,7 +31,7 @@ doAThingToLotsOfFiles() {
 }
 
 openCommit() {
-  eval 'doAThingToLotsOfFiles "subl ." "git diff $1 $1~1 --name-only | cat"'
+  eval 'doAThingToLotsOfFiles "atom ." "git diff $1 $1~1 --name-only | cat"'
 }
 
 openLastCommit() {
@@ -40,7 +40,7 @@ openLastCommit() {
 
 openChangedFiles!() {
   eval 'git add .'
-  eval 'doAThingToLotsOfFiles "subl ." changedFiles'
+  eval 'doAThingToLotsOfFiles "atom ." changedFiles'
   eval 'git reset'
 }
 

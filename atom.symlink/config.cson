@@ -1,31 +1,72 @@
-'editor':
-  'showIndentGuide': true
-  'fontFamily': 'Menlo'
-  'fontSize': 15
-'core':
-  'excludeVcsIgnoredPaths': true
-  'ignoredNames': [
-    '.bundle'
-    '.git'
-    'log'
-    'repositories'
-    'tmp'
-    'vendor'
-  ]
-  'hideGitIgnoredFiles': true
-  'disabledPackages': [
-    'background-tips'
-    'exception-reporting'
-    'metrics'
-  ]
-'spell-check':
-  'grammars': [
-    'text.plain'
-    'source.gfm'
-    'text.git-commit'
-  ]
-'welcome':
-  'showOnStartup': false
-'release-notes':
-  'viewedVersion': '0.89.0'
-'tree-view': {}
+"*":
+  core:
+    audioBeep: false
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+        ".flowconfig"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+      "tree-view"
+      "vim-mode-plus"
+      "language-javascript-jsx"
+    ]
+    excludeVcsIgnoredPaths: true
+    hideGitIgnoredFiles: true
+    ignoredNames: [
+      ".bundle"
+      ".git"
+      "log"
+      "repositories"
+      "tmp"
+      "vendor"
+    ]
+    telemetryConsent: "no"
+  editor:
+    fontFamily: "Menlo"
+    fontSize: 15
+    preferredLineLength: 84
+    scrollPastEnd: true
+    showIndentGuide: true
+    tabLength: 2
+  "find-and-replace":
+    searchContextLineCountAfter: 3
+    searchContextLineCountBefore: 3
+  "language-babel":
+    autoIndentJSX: true
+    disableWhenNoBabelrcFileInPath: false
+  nuclide:
+    "nuclide-flow":
+      warnOnNotInstalled: false
+  "omni-ruler":
+    columns: [
+      "84"
+      "150"
+    ]
+  "release-notes":
+    viewedVersion: "0.89.0"
+  "spell-check":
+    grammars: [
+      "text.plain"
+      "source.gfm"
+      "text.git-commit"
+    ]
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+".js.jsx.source":
+  editor:
+    showInvisibles: true
+    softWrap: true
