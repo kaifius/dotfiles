@@ -18,8 +18,8 @@
       "exception-reporting"
       "metrics"
       "tree-view"
-      "vim-mode-plus"
       "language-javascript-jsx"
+      "vim-mode-plus"
     ]
     excludeVcsIgnoredPaths: true
     hideGitIgnoredFiles: true
@@ -35,10 +35,15 @@
   editor:
     fontFamily: "Menlo"
     fontSize: 15
+    invisibles: {}
     preferredLineLength: 84
     scrollPastEnd: true
     showIndentGuide: true
+    showInvisibles: true
     tabLength: 2
+  "file-watcher":
+    autoReload: true
+    includeCompareOption: false
   "find-and-replace":
     searchContextLineCountAfter: 3
     searchContextLineCountBefore: 3
@@ -48,6 +53,8 @@
   nuclide:
     "nuclide-flow":
       warnOnNotInstalled: false
+    "nuclide-home":
+      showHome: false
   "omni-ruler":
     columns: [
       "84"
