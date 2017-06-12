@@ -53,3 +53,15 @@ resetTempCommit() {
     echo 'no temp commit to reset'
   fi
 }
+
+jestLastCommit() {
+  eval 'doAThingToLotsOfFiles "jest" "latestCommittedFiles | grep spec/js"'
+}
+
+rspecLastCommit() {
+  eval 'doAThingToLotsOfFiles "rspec" "latestCommittedFiles | grep spec.rb$"'
+}
+
+testLastCommit() {
+  eval 'jestLastCommit; rspecLastCommit'
+}
