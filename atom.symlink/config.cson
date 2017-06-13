@@ -17,9 +17,9 @@
       "background-tips"
       "exception-reporting"
       "metrics"
-      "tree-view"
       "language-javascript-jsx"
       "vim-mode-plus"
+      "nuclide"
     ]
     excludeVcsIgnoredPaths: true
     hideGitIgnoredFiles: true
