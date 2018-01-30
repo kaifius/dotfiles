@@ -12,26 +12,15 @@ alias me="lg | grep -vi 'merge' | grep -i '<kai'"
 alias hrc='heroku run rails console -r heroku'
 alias prodpg='heroku pg:psql -r heroku'
 alias hrcStaging='heroku run rails console -r staging'
-alias tempcommit="git add .; git commit -m 'TEMP COMMIT'"
 alias jest='yarn jest'
 alias st='spring teaspoon'
 
 alias latestCommittedFiles='git diff HEAD HEAD~1 --name-only | cat'
 alias changedFiles='git diff HEAD --name-only | cat'
-
-doAThingToLotsOfFiles() {
-  commandToPerform=$1" "
-  alias filesList=$2
-  while read -r fileName; do
-    commandToPerform=$commandToPerform$fileName" "
-  done <<< $(filesList)
-  echo "performing $1 on the following files: \n\n$(filesList)"
-  eval $commandToPerform
-
-}
+alias tempcommit="git add .; git commit -m 'TEMP COMMIT'"
 
 openCommit() {
-  eval 'doAThingToLotsOfFiles "subl ." "git diff $1 $1~1 --name-only | cat"'
+  eval "git diff $1 $1~1 --name-only | xargs subl ."
 }
 
 openLastCommit() {
@@ -40,7 +29,7 @@ openLastCommit() {
 
 openChangedFiles!() {
   eval 'git add .'
-  eval 'doAThingToLotsOfFiles "subl ." changedFiles'
+  eval 'changedFiles | xargs subl .'
   eval 'git reset'
 }
 
@@ -55,13 +44,15 @@ resetTempCommit() {
 }
 
 jestLastCommit() {
-  eval 'doAThingToLotsOfFiles "jest" "latestCommittedFiles | grep spec/js"'
+  eval 'latestCommittedFiles | grep spec/js | xargs jest'
 }
 
 rspecLastCommit() {
-  eval 'doAThingToLotsOfFiles "rspec" "latestCommittedFiles | grep spec.rb$"'
+  eval 'latestCommittedFiles | grep spec.rb$ | xargs rspec'
 }
 
 testLastCommit() {
   eval 'jestLastCommit; rspecLastCommit'
 }
+alias eslint='yarn eslint'
+alias testLog='tail -f log/test.log'
