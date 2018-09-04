@@ -1,4 +1,4 @@
-addAlias() {
+faddAlias() {
   echo "alias $1='$2'" >> /Users/kaihofius/.dotfiles/zsh/aliases.zsh
   eval 'reload!'
 }
@@ -14,10 +14,15 @@ alias prodpg='heroku pg:psql -r heroku'
 alias hrcStaging='heroku run rails console -r staging'
 alias jest='yarn jest'
 alias st='spring teaspoon'
+alias rumRuffPubPax='rm -rf public/packs-test'
 
 alias latestCommittedFiles='git diff HEAD HEAD~1 --name-only | cat'
 alias changedFiles='git diff HEAD --name-only | cat'
 alias tempcommit="git add .; git commit -m 'TEMP COMMIT'"
+
+listCommit() {
+  "git diff $1 $1~1 --name-only"
+}
 
 openCommit() {
   eval "git diff $1 $1~1 --name-only | xargs subl ."
@@ -42,17 +47,22 @@ resetTempCommit() {
     echo 'no temp commit to reset'
   fi
 }
-
 jestLastCommit() {
-  eval 'latestCommittedFiles | grep spec/js | xargs jest'
+  alias jestSpecs='latestCommittedFiles | grep spec/javascript/'
+  if [ jestSpecs ]; then
+    eval  'jestSpecs | xargs yarn jest'
+  fi
 }
 
 rspecLastCommit() {
-  eval 'latestCommittedFiles | grep spec.rb$ | xargs rspec'
+  alias rspecSpecs='latestCommittedFiles | grep spec.rb$'
+  if [ rspecSpecs ]; then
+    eval 'rspecSpecs | xargs rspec'
+  fi
 }
 
-testLastCommit() {
-  eval 'jestLastCommit; rspecLastCommit'
-}
+alias testLastCommit='jestLastCommit; rspecLastCommit'
+
+
 alias eslint='yarn eslint'
 alias testLog='tail -f log/test.log'

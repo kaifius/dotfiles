@@ -22,10 +22,19 @@ alias grl='git rebase -'
 alias grm='git rebase master'
 alias gc='git commit'
 alias gca='git commit --amend'
-alias go='git checkout'
 alias gk='git checkout -b'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gse='git status -sb'
 alias gd='git icdiff | less -X'
 
+branchesExcept() {
+  if [ $1 ]; then
+    exception="|$1"
+  fi
+  eval "git branch | grep -viE 'master|staging$exception'"
+}
+
+cleanBranchesExcept() {
+  eval "branchesExcept $1 | xargs git branch -D"
+}
