@@ -24,7 +24,7 @@ alias gc='git commit'
 alias gca='git commit --amend'
 alias gk='git checkout -b'
 alias gcb='git copy-branch-name'
-alias gb='git branch'
+alias gb='git branch | less -X'
 alias gse='git status -sb'
 alias gd='git icdiff | less -X'
 
