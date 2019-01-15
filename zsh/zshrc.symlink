@@ -7,7 +7,7 @@ plugins=(git vim docker npm bower brew bundler node nvm rvm zsh-syntax-highlight
 source $ZSH/oh-my-zsh.sh
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/code
+export PROJECTS=~/Code
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
@@ -61,4 +61,9 @@ export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
 
 export EDITOR="/usr/local/bin/subl"
 
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH=".rvm/gems/ruby-2.5.3/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

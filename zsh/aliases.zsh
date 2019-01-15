@@ -1,5 +1,5 @@
 faddAlias() {
-  echo "alias $1='$2'" >> /Users/kaihofius/.dotfiles/zsh/aliases.zsh
+  echo "alias $1='$2'" >> ~/.dotfiles/zsh/aliases.zsh
   eval 'reload!'
 }
 
