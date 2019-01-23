@@ -1,0 +1,44 @@
+{
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Colorsublime - Themes/cache/Colorsublime-Themes-master/themes/bluloco-dark.tmTheme",
+	"detect_indentation": true,
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		".eslint*",
+		".git"
+	],
+	"folder_exclude_patterns":
+	[
+		"public/packs*",
+		"log",
+		".git",
+		"coverage",
+		"tmp"
+	],
+	"font_size": 16,
+	"ignored_packages":
+	[
+		"JSHint Gutter",
+		"Markdown",
+		"Markdown HTML Preview",
+		"Markdown Preview",
+		"MarkdownEditing",
+		"OrigamiEmacs",
+		"RuboCop",
+		"Vintage"
+	],
+	"rulers":
+	[
+		8,
+		84,
+		150
+	],
+	"scroll_past_end": true,
+	"show_definitions": false,
+	"show_full_path": true,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}

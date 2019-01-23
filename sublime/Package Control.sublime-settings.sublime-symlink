@@ -1,0 +1,41 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"10% Too Dull for My Tastes Color Scheme",
+		"Alternate VIM Navigation",
+		"AutoWrap",
+		"Babel",
+		"BracketHighlighter",
+		"Case Conversion",
+		"Colorsublime",
+		"Copy Relative Path",
+		"DocBlockr",
+		"Elm Language Support",
+		"ESLint",
+		"Git",
+		"Git blame",
+		"Git Commit Message Syntax",
+		"GitGutter",
+		"JavaScriptNext - ES6 Syntax",
+		"JSHint",
+		"Markdown HTML Preview",
+		"MarkdownEditing",
+		"MarkdownLight",
+		"MarkdownLivePreview",
+		"Package Control",
+		"PostgreSQL Syntax Highlighting",
+		"Pretty JSON",
+		"ReactJS",
+		"RuboCop",
+		"Sass",
+		"SublimeLinter",
+		"SublimeLinter-rubocop",
+		"TabsExtra",
+		"TypeScript",
+		"WordCompletion"
+	]
+}

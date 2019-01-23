@@ -124,6 +124,21 @@ link_file () {
   fi
 }
 
+install_sublime_settings () {
+  user "Install Sublime Text 3 settings? [y/n]"
+  read -n 1 action
+
+  if [ "$action" == "y" ]
+    SUBLIME_CONFIG_DIR="Library/Application Support/Sublime Text 3/Packages/User"
+  then
+    find "$DOTFILES_ROOT" -maxdepth 2 -name '*.sublime-symlink' | while read src
+    do
+      dst="$HOME/$SUBLIME_CONFIG_DIR/$(basename "${src%.*}")"
+      link_file "$src" "$dst"
+    done
+  fi
+}
+
 install_dotfiles () {
   info 'installing dotfiles'
 
@@ -138,6 +153,7 @@ install_dotfiles () {
 
 setup_gitconfig
 install_dotfiles
+install_sublime_settings
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
