@@ -6,11 +6,8 @@ then
   alias git=$hub_path
 fi
 
-lg() {
-  git lg $1 | less -X
-}
-
 alias gl="echo 'did you mean lg?'"
+alias lg='git --no-pager lg -5'
 alias gp='git push'
 alias gpf='git push -f'
 alias gpm='git pull origin master --prune && git fetch'
@@ -24,9 +21,12 @@ alias gc='git commit'
 alias gca='git commit --amend'
 alias gk='git checkout -b'
 alias gcb='git copy-branch-name'
-alias gb='git branch | less -X'
+alias gb='git branch'
 alias gse='git status -sb'
-alias gd='git icdiff | less -X'
+alias gd='git icdiff'
+alias gpu='[[ -z $(git config "branch.$(git symbolic-ref --short HEAD).merge") ]] &&
+           git push -u origin $(git symbolic-ref --short HEAD) ||
+           git push'
 
 branchesExcept() {
   if [ $1 ]; then

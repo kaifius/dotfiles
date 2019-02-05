@@ -17,7 +17,7 @@
 		"coverage",
 		"tmp"
 	],
-	"font_size": 16,
+	"font_size": 15,
 	"ignored_packages":
 	[
 		"JSHint Gutter",
@@ -31,7 +31,6 @@
 	],
 	"rulers":
 	[
-		8,
 		84,
 		150
 	],
