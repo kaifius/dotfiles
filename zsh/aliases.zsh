@@ -41,12 +41,13 @@ openChangedFiles!() {
 resetTempCommit() {
   headMessage=$(git log --format=%B -n 1 HEAD | cat)
 
-  if [ $headMessage == "TEMP COMMIT" ]; then
+  if [ $headMessage = "TEMP COMMIT" ]; then
     git reset HEAD~1
   else
     echo 'no temp commit to reset'
   fi
 }
+
 jestLastCommit() {
   alias jestSpecs='latestCommittedFiles | grep spec/javascript/'
   if [ jestSpecs ]; then
