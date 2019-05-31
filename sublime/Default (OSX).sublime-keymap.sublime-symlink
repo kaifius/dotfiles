@@ -2,6 +2,7 @@
   { "keys": ["super+i"], "command": "copy_relative_path" },
   { "keys": ["super+b"], "command": "git_blame" },
   { "keys": ["super+k", "super+f"], "command": "reveal_in_side_bar" },
+  { "keys": ["super+k", "super+s"], "command": "set_mark" },
   { "keys": ["ctrl+m"], "command": "toggle_minimap" },
   // Auto-pair backticks
   { "keys": ["`"], "command": "insert_snippet", "args": {"contents": "`$0`"}, "context":
