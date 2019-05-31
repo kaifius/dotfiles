@@ -1,4 +1,4 @@
-faddAlias() {
+addAlias() {
   echo "alias $1='$2'" >> ~/.dotfiles/zsh/aliases.zsh
   eval 'reload!'
 }
@@ -8,7 +8,7 @@ alias zshp='subl ~/.dotfiles'
 alias chalk='cd ~/code/synchroform'
 alias code='cd ~/code'
 alias gitwut='cat ~/.dotfiles/git/aliases.zsh | grep alias'
-alias me="lg | grep -vi 'merge' | grep -i '<kai'"
+alias me="git lg | grep -vi 'merge' | grep -i '<kai'"
 alias hrc='heroku run rails console -r heroku'
 alias prodpg='heroku pg:psql -r heroku'
 alias hrcStaging='heroku run rails console -r staging'
@@ -16,16 +16,16 @@ alias jest='yarn jest'
 alias st='spring teaspoon'
 alias rumRuffPubPax='rm -rf public/packs-test'
 
-alias latestCommittedFiles='git diff HEAD HEAD~1 --name-only | cat'
+alias latestCommittedFiles='git diff HEAD~1 HEAD --name-only'
 alias changedFiles='git diff HEAD --name-only | cat'
 alias tempcommit="git add .; git commit -m 'TEMP COMMIT'"
 
 listCommit() {
-  "git diff $1 $1~1 --name-only"
+  "git diff $1~1 $1 --name-only"
 }
 
 openCommit() {
-  eval "git diff $1 $1~1 --name-only | xargs subl ."
+  eval "git diff $1~1 $1 --name-only --diff-filter=d | xargs subl ."
 }
 
 openLastCommit() {
@@ -49,14 +49,14 @@ resetTempCommit() {
 }
 
 jestLastCommit() {
-  alias jestSpecs='latestCommittedFiles | grep spec/javascript/'
+  alias jestSpecs='latestCommittedFiles --diff-filter=d | grep spec/javascript/'
   if [ jestSpecs ]; then
     eval  'jestSpecs | xargs yarn jest'
   fi
 }
 
 rspecLastCommit() {
-  alias rspecSpecs='latestCommittedFiles | grep spec.rb$'
+  alias rspecSpecs='latestCommittedFiles --diff-filter=d | grep spec.rb$'
   if [ rspecSpecs ]; then
     eval 'rspecSpecs | xargs rspec'
   fi
