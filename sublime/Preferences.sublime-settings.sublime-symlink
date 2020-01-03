@@ -11,14 +11,13 @@
 	],
 	"folder_exclude_patterns":
 	[
-		"public/packs*",
 		"log",
 		".git",
 		"coverage",
 		"tmp",
 		"node_modules"
 	],
-	"font_size": 14,
+	"font_size": 15,
 	"ignored_packages":
 	[
 		"JSHint Gutter",
