@@ -6,7 +6,6 @@ addAlias() {
 alias reload!='. ~/.zshrc'
 alias zshp='$EDITOR ~/.dotfiles'
 alias chalk='cd ~/code/synchroform'
-alias code='cd ~/code'
 alias gitwut='cat ~/.dotfiles/git/aliases.zsh | grep alias'
 alias me="git lg | grep -vi 'merge' | grep -i '<kai'"
 alias hrc='heroku run rails console -r heroku'
@@ -68,3 +67,4 @@ alias testLastCommit='jestLastCommit; rspecLastCommit'
 
 alias eslint='yarn eslint'
 alias testLog='tail -f log/test.log'
+alias devLog='tail -f log/development.log'
