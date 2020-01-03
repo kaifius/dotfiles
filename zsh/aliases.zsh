@@ -4,7 +4,7 @@ addAlias() {
 }
 
 alias reload!='. ~/.zshrc'
-alias zshp='subl ~/.dotfiles'
+alias zshp='$EDITOR ~/.dotfiles'
 alias chalk='cd ~/code/synchroform'
 alias code='cd ~/code'
 alias gitwut='cat ~/.dotfiles/git/aliases.zsh | grep alias'
@@ -15,6 +15,7 @@ alias hrcStaging='heroku run rails console -r staging'
 alias jest='yarn jest'
 alias st='spring teaspoon'
 alias rumRuffPubPax='rm -rf public/packs-test'
+alias edit='$EDITOR'
 
 alias latestCommittedFiles='git diff HEAD~1 HEAD --name-only'
 alias changedFiles='git diff HEAD --name-only | cat'
@@ -25,7 +26,7 @@ listCommit() {
 }
 
 openCommit() {
-  eval "git diff $1~1 $1 --name-only --diff-filter=d | xargs subl ."
+  eval "git diff $1~1 $1 --name-only --diff-filter=d | xargs $EDITOR ."
 }
 
 openLastCommit() {
@@ -34,7 +35,7 @@ openLastCommit() {
 
 openChangedFiles!() {
   eval 'git add .'
-  eval 'changedFiles | xargs subl .'
+  eval 'changedFiles | xargs $EDITOR .'
   eval 'git reset'
 }
 
