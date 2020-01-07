@@ -42,10 +42,7 @@ ZSH_THEME_PROMPT_PATH_COLOR=$FG[214]
 ZSH_THEME_GIT_PROMPT_COLOR=$FG[045]
 ZSH_THEME_GIT_PROMPT_BRANCH_COLOR=$FG[063]
 ZSH_THEME_GIT_PROMPT_DETACHED_COLOR=$FG[009]
-
-ZSH_THEME_GIT_TIME_SINCE_LAST_COMMIT_LONG_COLOR=$FG[009]
-ZSH_THEME_GIT_TIME_SINCE_LAST_COMMIT_MEDIUM_COLOR=$FG[142]
-ZSH_THEME_GIT_TIME_SINCE_LAST_COMMIT_SHORT_COLOR=$FG[118]
+ZSH_THEME_GIT_PROMPT_STATUS_COLOR=$FG[142]
 
 ZSH_THEME_GIT_PROMPT_AHEAD_COLOR=$FG[118]
 ZSH_THEME_GIT_PROMPT_BEHIND_COLOR=$FG[009]
@@ -67,9 +64,7 @@ function left_prompt() {
 function right_prompt() {
   cols="$(tput cols)"
   if [ "$cols" -le 88 ]; then
-    echo "$(exit_code)$(git_dirty_state)$(git_prompt)"
-  else
-    echo "$(exit_code)"
+    echo "$(git_dirty_state)$(git_prompt)"
   fi
 }
 
@@ -124,30 +119,6 @@ function git_ahead_behind_state() {
   fi
 }
 
-# Time since last commit, in seconds
-# Inspired by @goldjunge
-# https://github.com/goldjunge/oh-my-zsh/commit/084c44a9cbb82fc6d78396d053539162331fa7c0
-function git_time_since_last_commit() {
-  sha="$(git_short_sha)"
-  if [ -n "$sha" ]; then
-    last="$(git log --pretty=format:'%at' -1 2> /dev/null)"
-    now="$(date +%s)"
-
-    echo "$((now - last))"
-  fi
-}
-
-function git_color_for_time_since_last_commit() {
-  seconds="$(git_time_since_last_commit)"
-  if [ "$seconds" -gt 1800 ]; then
-    echo "%{$ZSH_THEME_GIT_TIME_SINCE_LAST_COMMIT_LONG_COLOR%}"
-  elif if [ "$seconds" -gt 900 ]; then
-    echo "%{$ZSH_THEME_GIT_TIME_SINCE_LAST_COMMIT_MEDIUM_COLOR%}"
-  else
-    echo "%{$ZSH_THEME_GIT_TIME_SINCE_LAST_COMMIT_SHORT_COLOR%}"
-  fi
-}
-
 function git_branch_state() {
   branch="$(git_current_branch)"
   if [ -n "$branch" ]; then
@@ -174,11 +145,11 @@ function git_dirty_state() {
   staged=$?
 
   if  [ "$staged" -eq 1 ]; then
-    echo "$(git_color_for_time_since_last_commit)$ZSH_THEME_GIT_PROMPT_STAGED"
+    echo "%{$ZSH_THEME_GIT_PROMPT_STATUS_COLOR%}$ZSH_THEME_GIT_PROMPT_STAGED"
   elif [ "$untracked" -eq 1 ] || [ "$changed" -eq 1 ]; then
-    echo "$(git_color_for_time_since_last_commit)$ZSH_THEME_GIT_PROMPT_UNSTAGED"
+    echo "%{$ZSH_THEME_GIT_PROMPT_STATUS_COLOR%}$ZSH_THEME_GIT_PROMPT_UNSTAGED"
   else
-    echo "$(git_color_for_time_since_last_commit)$ZSH_THEME_GIT_PROMPT_CLEAN"
+    echo "%{$ZSH_THEME_GIT_PROMPT_STATUS_COLOR%}$ZSH_THEME_GIT_PROMPT_CLEAN"
   fi
 }
 
@@ -187,12 +158,6 @@ function git_prompt() {
   if [ -n "$sha" ]; then
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(git_branch_state)$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
-}
-
-# TODO: remove this completely
-function exit_code {
-  # echo "%(?,,%{$fg_bold[red]%}✗)"
-  echo ""
 }
 
 ZSH_THEME_GIT_PROMPT_BRANCH_PREFIX="%{$ZSH_THEME_GIT_PROMPT_BRANCH_COLOR%}"
@@ -204,8 +169,7 @@ ZSH_THEME_GIT_PROMPT_DETACHED_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNSTAGED=" ○ "
 ZSH_THEME_GIT_PROMPT_STAGED=" ● "
 ZSH_THEME_GIT_PROMPT_CLEAN=" "
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$ZSH_THEME_GIT_PROMPT_COLOR%}git:("
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$ZSH_THEME_GIT_PROMPT_COLOR%}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$ZSH_THEME_GIT_PROMPT_COLOR%})%{$reset_color%}"
 
 PROMPT='$(left_prompt)'
