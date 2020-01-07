@@ -1,11 +1,3 @@
-# Use `hub` as our git wrapper:
-#   http://defunkt.github.com/hub/
-hub_path=$(which hub)
-if (( $+commands[hub] ))
-then
-  alias git=$hub_path
-fi
-
 alias gl="echo 'did you mean lg?'"
 alias lg='git --no-pager lg -5'
 alias gp='git push'
@@ -27,6 +19,7 @@ alias gd='git icdiff'
 alias gpu='[[ -z $(git config "branch.$(git symbolic-ref --short HEAD).merge") ]] &&
            git push -u origin $(git symbolic-ref --short HEAD) ||
            git push'
+alias cpb= 'git copy-branch-name'
 
 branchesExcept() {
   if [ $1 ]; then
