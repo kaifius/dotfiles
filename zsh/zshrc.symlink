@@ -2,16 +2,8 @@ export DOTFILES=$HOME/.dotfiles
 
 # oh-my-zshrc specifics
 export ZSH=$HOME/.oh-my-zsh
-plugins=(git vim docker npm bower brew bundler node nvm rvm zsh-syntax-highlighting)
+plugins=(git npm brew bundler node nvm rvm)
 source $ZSH/oh-my-zsh.sh
-
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-nvm alias default 10.15.0
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -55,12 +47,5 @@ zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
-# [add link to troubleshooting wiki after updating it]
-# set fontconfig path (for imagemagick)
-export FONTCONFIG_PATH=/opt/X11/lib/X11/fontconfig
-
 export EDITOR="/usr/local/bin/code"
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
