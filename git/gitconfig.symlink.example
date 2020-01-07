@@ -13,7 +13,8 @@
         promote = !$DOTFILES/bin/git-promote
         wtf     = !$DOTFILES/bin/git-wtf
         nuke    = !$DOTFILES/bin/git-nuke
-        rank-contributors = !$DOTFILES/bin/git-rank-contributors
+        rank-contrib = !$DOTFILES/bin/git-rank-contributors
+        cp-branch = !$DOTFILES/bin/git-copy-branch-name
         count   = !git shortlog -sn
         lg      = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [color]
