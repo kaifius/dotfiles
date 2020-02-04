@@ -69,10 +69,19 @@ alias eslint='yarn eslint'
 alias testLog='tail -f log/test.log'
 alias devLog='tail -f log/development.log'
 
-gitHubOpen() {
-  branch=$(git branch --show-current)
+ghLink() {
+  # TODO: default to current branch, allow optional branch argument
+  # branch=$(git branch --show-current)
+  branch='master'
   file_path=$1
   remote=$(echo $(git config --get remote.origin.url) | rev | cut -c 5- | rev)
+  link=$remote"/blob/"$branch"/"$file_path
+  if [ -n "$2" ]; then link=$link"#L"$2; fi
+  if [ -n "$3" ]; then link=$link"-L"$3; fi
 
-  open $remote"/blob/"$branch"/"$file_path
+  echo $link
 }
+
+ghOpen() { open $(ghLink $@) }
+
+ghCopy() { ghLink $@ | pbcopy }
