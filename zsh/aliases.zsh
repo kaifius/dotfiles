@@ -68,3 +68,11 @@ alias testLastCommit='jestLastCommit; rspecLastCommit'
 alias eslint='yarn eslint'
 alias testLog='tail -f log/test.log'
 alias devLog='tail -f log/development.log'
+
+gitHubOpen() {
+  branch=$(git branch --show-current)
+  file_path=$1
+  remote=$(echo $(git config --get remote.origin.url) | rev | cut -c 5- | rev)
+
+  open $remote"/blob/"$branch"/"$file_path
+}
