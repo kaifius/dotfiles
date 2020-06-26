@@ -28,6 +28,15 @@ branchesExcept() {
   eval "git branch | grep -viE 'master|staging$exception'"
 }
 
-cleanBranchesExcept() {
+forceDeleteBranchesExcept() {
   eval "branchesExcept $1 | xargs git branch -D"
 }
+
+branchesWith() {
+  eval "git branch | grep -iE $1"
+}
+
+forceDeleteBranchesWith() {
+  eval "branchesWith $1 | xargs git branch -D"
+}
+
