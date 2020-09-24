@@ -17,6 +17,7 @@
         branch-cp = !$DOTFILES/bin/git-copy-branch-name
         count   = !git shortlog -sn
         lg      = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        icdiff  = !$DOTFILES/git/git-icdiff
 [color]
         diff = auto
         status = auto
