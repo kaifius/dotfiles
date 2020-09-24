@@ -7,11 +7,11 @@
 #
 # USAGE:
 #
-#   $ edit
+#   $ e
 #   # => opens the current directory in your editor
 #
-#   $ edit .
-#   $ edit /usr/local
+#   $ e .
+#   $ e /usr/local
 #   # => opens the specified directory in your editor
 
 if [ "$1" = "" ] ; then
