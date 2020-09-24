@@ -15,7 +15,6 @@ alias hrcStaging='heroku run rails console -r staging'
 alias jest='yarn jest'
 alias st='spring teaspoon'
 alias rumRuffPubPax='rm -rf public/packs-test'
-alias edit='$EDITOR'
 
 alias latestCommittedFiles='git diff HEAD~1 HEAD --name-only'
 alias changedFiles='git diff HEAD --name-only | cat'
