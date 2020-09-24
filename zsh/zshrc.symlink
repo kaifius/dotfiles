@@ -49,3 +49,5 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 
 export EDITOR="/usr/local/bin/code"
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
