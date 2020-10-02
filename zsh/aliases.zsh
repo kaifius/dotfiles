@@ -73,7 +73,7 @@ alias devLog='tail -f log/development.log'
 ghLink() {
   # TODO: default to current branch, allow optional branch argument
   # branch=$(git branch --show-current)
-  branch='master'
+  branch='main'
   file_path=$1
   remote=$(echo $(git config --get remote.origin.url) | rev | cut -c 5- | rev)
   link=$remote"/blob/"$branch"/"$file_path
