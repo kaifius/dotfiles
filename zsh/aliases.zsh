@@ -5,7 +5,7 @@ addAlias() {
 
 alias reload!='. ~/.zshrc'
 alias zshp='$EDITOR ~/.dotfiles'
-alias chalk='cd ~/code/synchroform'
+alias binti='c family'
 alias gitwut='cat ~/.dotfiles/git/aliases.zsh | grep alias'
 alias me="git lg | grep -vi 'merge' | grep -i '<kai'"
 alias hrc='heroku run rails console -r heroku --sandbox'
