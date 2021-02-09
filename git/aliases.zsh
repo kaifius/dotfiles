@@ -13,13 +13,13 @@ alias gc='git commit'
 alias gca='git commit --amend'
 alias gk='git checkout -b'
 alias gcb='git copy-branch-name'
-alias gb='git branch | cat'
+alias gb='git --no-pager branch'
 alias gse='git status -sb'
 alias gd='git icdiff'
 alias gpu='[[ -z $(git config "branch.$(git symbolic-ref --short HEAD).merge") ]] &&
            git push -u origin $(git symbolic-ref --short HEAD) ||
            git push'
-alias cpb= 'git copy-branch-name'
+alias cpb= 'git branch-cp'
 
 branchesExcept() {
   if [ $1 ]; then
